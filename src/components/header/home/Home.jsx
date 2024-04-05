@@ -8,7 +8,7 @@ function Home() {
   const [countW, setcountW] = useState(0);
   function handleOnChange(e){
     setText(e.target.value)
-    setcountW(countWords())
+    setcountW(countWords()) //jab hum textarea ka text change kr rahe hai us waqt ,onchange ki wajah se thodi problems ho rahi h like it is still showing word count 1 even when all the text is deleted
   }
   function handleUpperCase(){
     // const new= text.toUpperCase()
