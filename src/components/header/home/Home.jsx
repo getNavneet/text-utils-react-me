@@ -6,9 +6,12 @@ function Home() {
   const [text,setText]=useState('')
   // const [previewText,setPreviewText]=useState(text)
   const [countW, setcountW] = useState(0);
-  function handleOnChange(e){
-    setText(e.target.value)
-    setcountW(countWords()) //jab hum textarea ka text change kr rahe hai us waqt ,onchange ki wajah se thodi problems ho rahi h like it is still showing word count 1 even when all the text is deleted
+  // To optimize the countWords() function for handling text changes, especially when text is being deleted in a React app, you can modify the handleOnChange function to pass the updated text to the countWords function. This ensures that you're always counting the words in the most current version of the text.
+  function handleOnChange(e) {
+    const newText = e.target.value;
+    setText(newText);
+    const wordsCount = countWords(newText);
+    setcountW(wordsCount);
   }
   function handleUpperCase(){
     // const new= text.toUpperCase()
@@ -30,7 +33,8 @@ function Home() {
     textRef.current?.setSelectionRange(0, 999);
     window.navigator.clipboard.writeText(text)
   }
-  function countWords() {
+  function countWords(text) {
+    
     // Using regular expression to count words
     const wordCount = text.match(/\b\w+\b/g) || [];
     return wordCount.length;
