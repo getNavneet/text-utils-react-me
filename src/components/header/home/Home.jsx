@@ -4,7 +4,7 @@ import Button from "../../../Button";
 function Home() {
   const textRef=useRef(null)
   const [text,setText]=useState('')
-  const [previewText,setPreviewText]=useState(text)
+  // const [previewText,setPreviewText]=useState(text)
   const [countW, setcountW] = useState(0);
   function handleOnChange(e){
     setText(e.target.value)
@@ -20,7 +20,6 @@ function Home() {
   function handleClearAll(){
     setText("")
     setcountW(0);
-
   }
   function handleExtraSpace(){
     let newText = text.split(/[ ]+/);
@@ -36,7 +35,11 @@ function Home() {
     const wordCount = text.match(/\b\w+\b/g) || [];
     return wordCount.length;
 }
-
+function extractEmails() {
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g;
+  const mails= text.match(emailRegex) || [];
+  setText(mails);
+}
 
   return (
     <>
@@ -58,12 +61,13 @@ function Home() {
           // cols="100"
           ref={textRef}
         ></textarea>
-        <div className="p-1 bg-orange-300">
+        <div className="p-1  bg-orange-300">
           <Button className="m-1" onClick={handleUpperCase} >to UpperCase</Button>
           <Button className="m-1" onClick={handleLowerCase} >to LowerCase</Button>
           <Button className="m-1" onClick={handleClearAll} >clear all</Button>
           <Button className="m-1" onClick={handleCopyText} >copy text</Button>
           <Button className="m-1" onClick={handleExtraSpace} >remove extra space</Button>
+          <Button className="m-1" onClick={extractEmails} >extract Emails</Button>
         </div>
         <h1 className="text-2xl p-2 bg-yellow-700 inline-block ">your text summary :</h1>
         <p>
