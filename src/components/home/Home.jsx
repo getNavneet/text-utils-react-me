@@ -13,6 +13,10 @@ useEffect(() => {
     // Scroll to the guide section when the component renders
     guideRef.current.scrollIntoView({ behavior: 'smooth' });
   }
+  else{
+     // Scroll to top if navigating to Home without #guide hash
+     window.scrollTo(0, 0);
+  }
 }, [location]);
 
 
