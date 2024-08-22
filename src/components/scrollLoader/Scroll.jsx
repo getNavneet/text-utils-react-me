@@ -6,17 +6,17 @@ function ScrollLoader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
+      const scrollTop = document.documentElement.scrollTop; //current scroll position
+      const scrollHeight = document.documentElement.scrollHeight; //total scrollable height
+      const clientHeight = document.documentElement.clientHeight; //height of the viewport 
 
       const newScrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
-      setScrollPercent(newScrollPercent);
+      setScrollPercent(newScrollPercent); //change in a state 
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
+
       window.removeEventListener('scroll', handleScroll);
     };
   }, []); // Empty dependency array ensures this effect only runs once

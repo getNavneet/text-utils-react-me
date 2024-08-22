@@ -5,8 +5,17 @@ import React from "react";
 import Button from "../../Button";
 function Home() {
   const textRef = useRef(null);
-const scrollRef = useRef(null)
+const guideRef = useRef(null)
 const location =useLocation()
+useEffect(() => {
+  // Check if the location's hash matches "#guide"
+  if (location.hash === '#guide') {
+    // Scroll to the guide section when the component renders
+    guideRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+}, [location]);
+
+
   const [text, setText] = useState("");
   // const [previewText,setPreviewText]=useState(text)
   const [countW, setcountW] = useState(0);
@@ -107,7 +116,7 @@ const location =useLocation()
         <h2>preview:</h2>
         <p>{text}</p>
       </div>
-      <div ref={scrollRef} class=" w-screen flex flex-col justify-center items-center bg-grey-1s00">
+      <div ref={guideRef} class=" w-screen flex flex-col justify-center items-center bg-grey-1s00">
     <div class=" w-full p-6 bg-white rounded-lg shadow-lg">
         <h1 class="text-3xl font-bold mb-4">User Guide for Text Utility React App</h1>
 
