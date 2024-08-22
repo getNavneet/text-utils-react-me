@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 my.text
+color-pellet.pdf
+color.png
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
