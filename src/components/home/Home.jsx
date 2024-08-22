@@ -2,7 +2,6 @@ import { useState, useRef,useEffect} from "react";
 import { useLocation } from 'react-router-dom';
 import React from "react";
 // import Button from "../../../Button";
-
 import Button from "../../Button";
 function Home() {
   const textRef = useRef(null);
@@ -56,8 +55,6 @@ const location =useLocation()
     const phoneNumbers = text.match(phoneRegex) || [];
     setText(phoneNumbers);
   }
- 
-  
   return (
     <>
       <div className="text-yellow-900 text-center text-3xl pt-7 pb-7 bg-slate-100">
