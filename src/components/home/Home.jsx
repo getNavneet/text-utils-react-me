@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import React from "react";
 // import Button from "../../../Button";
 import Button from "../../Button";
+// import HeroSection from "../hero/Hero";
+import Slideshow from "../hero/HeroCarousel";
 function Home() {
   const textRef = useRef(null);
 const guideRef = useRef(null)
@@ -70,6 +72,8 @@ useEffect(() => {
   }
   return (
     <>
+    {/* <HeroSection/> */}
+    <Slideshow></Slideshow>
       <div className="text-yellow-900 text-center text-3xl pt-7 pb-7 bg-slate-100">
         
       </div>
