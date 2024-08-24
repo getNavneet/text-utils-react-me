@@ -1,7 +1,7 @@
 import React, { useState, useEffect ,useRef } from 'react';
 
 const slides = [
-  { heading: "welcome to TextCraft:",
+  { heading: "welcome 🤗 to TextCraft:",
     para:"The Ultimate Text Toolkit."
    },
   { heading: "Slide 2: Discover amazing features.",
@@ -52,19 +52,38 @@ function Slideshow() {
     clearSlideInterval();
     setCurrentSlide((currentSlide - 1 + slides.length) % slides.length);
     startSlideInterval();
-
   };
 
   return (
-    <div className="relative w-full h-64 flex items-center justify-center bg-gray-200 overflow-hidden">
+    <div className="relative w-full h-64   flex items-center justify-center bg-gray-200 overflow-hidden">
       {/* Slide Text */}
-      <div className="flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out">
-        <h2 className="text-2xl md:text-4xl font-bold text-center">
+      <div className="p-2 m-6 flex flex-col items-center justify-center bg-lime-300 transition-opacity duration-1000 ease-in-out">
+        {currentSlide !== 0 && (<>
+          <h2 className="text-2xl md:text-4xl font-bold text-center">
           {slides[currentSlide].heading}
         </h2>
         <h2 className="text-xl md:text-3xl font-bold text-center">
           {slides[currentSlide].para}
         </h2>
+          </>)
+        }
+       {/* code for first slide. */}
+        {
+  currentSlide === 0 && (
+    <>
+      <h2 className="text-3xl  md:text-4xl font-bold text-center">
+      welcome 🤗
+      </h2>
+      <h2 className="text-2xl pb-4 md:text-4xl font-bold text-center">
+      this is TextCraft
+      </h2>
+      <h2 className="text-xl md:text-3xl font-bold text-center">
+      The Ultimate Text Toolkit.
+      </h2>
+    </>
+  )
+}
+        
       </div>
 
       {/* Previous Button */}
