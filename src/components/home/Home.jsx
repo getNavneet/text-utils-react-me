@@ -3,8 +3,10 @@ import { useLocation } from 'react-router-dom';
 import React from "react";
 // import Button from "../../../Button";
 import Button from "../../Button";
-// import HeroSection from "../hero/Hero";
+import { generateLorem } from "../../utils/generateWords";
+// now we have "generateLorem" function 
 import Slideshow from "../hero/HeroCarousel";
+import Popup from "../popup/RandomWords";
 function Home() {
   const textRef = useRef(null);
 const guideRef = useRef(null)
@@ -20,12 +22,35 @@ useEffect(() => {
      window.scrollTo(0, 0);
   }
 }, [location]);
+const [isPopupOpen, setIsPopupOpen] = useState(false);
+const [len,setLen]=useState(5)
+const [type,setType]=useState("lorem")
+ 
+  const openPopup = () => {
+    setIsPopupOpen(true);
+    document.body.style.overflow = "hidden";
 
+  };
 
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    document.body.style.overflow = "visible";
+  };
+  const popupDone = () => {
+    const txt=generateLorem(len);
+
+    setcountW(len)
+    setText(txt)
+    closePopup();
+  };
   const [text, setText] = useState("");
+  const handleRandomWordCount=(e)=>{
+    setType(e.value)
+    }
+
   // const [previewText,setPreviewText]=useState(text)
   const [countW, setcountW] = useState(0);
-
+  
   function handleOnChange(e) {
     const newText = e.target.value;
     setText(newText);
@@ -48,8 +73,9 @@ useEffect(() => {
     setText(newText.join(" "));
   }
   function handleCopyText() {
+
     textRef.current?.select();
-    textRef.current?.setSelectionRange(0, 999);
+    textRef.current?.setSelectionRange(0, 99999);
     window.navigator.clipboard.writeText(text);
   }
   function countWords(text) {
@@ -92,26 +118,30 @@ useEffect(() => {
           // cols="100"
           ref={textRef}
         ></textarea>
-        <div className="p-1  bg-orange-300">
-          <Button className="m-1" onClick={handleUpperCase}>
+        <div className="p-1 w-5/6 m-auto bg-orange-300">
+          <Button className="m-1 px-4 py-2" onClick={openPopup}>
+            generate random words
+          </Button>
+          
+          <Button className="m-1 px-4 py-2" onClick={handleUpperCase}>
             to UpperCase
           </Button>
-          <Button className="m-1" onClick={handleLowerCase}>
+          <Button className="m-1 px-4 py-2" onClick={handleLowerCase}>
             to LowerCase
           </Button>
-          <Button className="m-1" onClick={handleClearAll}>
+          <Button className="m-1 px-4 py-2" onClick={handleClearAll}>
             clear all
           </Button>
-          <Button className="m-1" onClick={handleCopyText}>
+          <Button className="m-1 px-4 py-2" onClick={handleCopyText}>
             copy text
           </Button>
-          <Button className="m-1" onClick={handleExtraSpace}>
+          <Button className="m-1 px-4 py-2" onClick={handleExtraSpace}>
             remove extra space
           </Button>
-          <Button className="m-1" onClick={extractEmails}>
+          <Button className="m-1 px-4 py-2" onClick={extractEmails}>
             extract Emails
           </Button>
-          <Button className="m-1" onClick={extractPhoneNumbers}>
+          <Button className="m-1 px-4 py-2" onClick={extractPhoneNumbers}>
             extract mobile no
           </Button>
         </div>
@@ -183,6 +213,7 @@ useEffect(() => {
         <p>The Text Utility React App offers convenient features for manipulating text, including converting case, removing extra spaces, and extracting mobile numbers and email addresses. Whether you're cleaning up text for analysis or extracting contact information, this app has you covered. Enjoy using the app and feel free to provide feedback or suggestions for improvement!</p>
     </div>
 </div>
+{isPopupOpen && <Popup len={len} handleRandomWordCount={handleRandomWordCount} setLen={setLen} setType={setType} type={type} closePopup={closePopup} popupDone={popupDone} setType={setType} setLen={setLen} />}
     </>
   );
 }
