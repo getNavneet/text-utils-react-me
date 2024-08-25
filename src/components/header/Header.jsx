@@ -27,7 +27,7 @@ function Header() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  isActive ? "text-blue-600" : "hover:text-red-600 hover:underline"
+                  isActive ? "text-gray-700 underline" : "hover:text-red-600 hover:underline"
                 }
               >
                 About
@@ -38,7 +38,7 @@ function Header() {
                 to="/#guide"
                 className={`${
                   location.hash === "#guide"
-                    ? "text-blue-600"
+                    ? "text-gray-700 underline"
                     : "hover:text-red-600 hover:underline"
                 }`}
               >
@@ -49,7 +49,7 @@ function Header() {
               <NavLink
                 to="/explore"
                 className={({ isActive }) =>
-                  isActive ? "text-blue-600" : "hover:text-red-600 hover:underline"
+                  isActive ? "text-gray-700 underline" : "hover:text-red-600 hover:underline"
                 }
               >
                 Explore
