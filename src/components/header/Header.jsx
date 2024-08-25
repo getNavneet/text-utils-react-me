@@ -5,7 +5,7 @@ function Header() {
 
   return (
     <>
-      <nav className="min-h-14 sticky top-0 z-10 bg-cyan-300 flex w-full items-center justify-between  ">
+      <nav className="min-h-14 sticky top-0 z-10 bg-cyan-300 flex w-full items-center justify-between shadow ">
       <div className="hidden sm:block ml-32 font-bold text-2xl ">
           textCraftz
         </div>

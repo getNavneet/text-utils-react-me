@@ -1,17 +1,17 @@
 import React, { useState, useEffect ,useRef } from 'react';
-
+import Button from '../../Button';
 const slides = [
-  { heading: "welcome 🤗 to TextCraft:",
+  { heading: "welcome 🤗 to TextCraftz:",
     para:"The Ultimate Text Toolkit."
    },
-  { heading: "Slide 2: Discover amazing features.",
-    para:"this is para."
+  { heading: "Generate Random words.",
+    para:"use as sample text and space filler."
    },
-  { heading: "Slide 3: Join us and get started today.",
-    para:"this is para."
+  { heading: "Extract e-mail Ids.",
+    para:"paste a long para and we will extract e-mail ids from it."
    },
-  { heading: "Slide 4: Thank you for visiting!" ,
-    para:"this is para."
+  { heading: "Remove Extra space" ,
+    para:"have extra spaces in your para, just paste it here we will remove it."
   },
 ];
 function Slideshow() {
@@ -24,7 +24,7 @@ function Slideshow() {
       setCurrentSlide((prevSlide) =>
         prevSlide === slides.length - 1 ? 0 : prevSlide + 1
       );
-    }, 3000); // 3 seconds interval
+    }, 5000); // 5 seconds interval
   };
 
   // Function to clear the slideshow interval
@@ -55,29 +55,29 @@ function Slideshow() {
   };
 
   return (
-    <div className="relative w-full h-64   flex items-center justify-center bg-gray-200 overflow-hidden">
+    <div className="relative w-full h-40 lg:h-64 flex items-center justify-center  overflow-hidden shadow">
       {/* Slide Text */}
-      <div className="p-2 m-6 flex flex-col items-center justify-center bg-lime-300 transition-opacity duration-1000 ease-in-out">
+      <div className="p-2 m-6 flex flex-col items-center justify-center  transition-opacity duration-1000 ease-in-out">
         {currentSlide !== 0 && (<>
-          <h2 className="text-2xl md:text-4xl font-bold text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-center underline decoration-dotted text-orange-600">
           {slides[currentSlide].heading}
         </h2>
-        <h2 className="text-xl md:text-3xl font-bold text-center">
+        <h3 className="text-xl md:text-3xl  text-center">
           {slides[currentSlide].para}
-        </h2>
+        </h3>
           </>)
         }
        {/* code for first slide. */}
         {
   currentSlide === 0 && (
     <>
-      <h2 className="text-3xl  md:text-4xl font-bold text-center">
+      <h2 className="text-3xl  md:text-4xl font-bold text-orange-600 text-center">
       welcome 🤗
       </h2>
-      <h2 className="text-2xl pb-4 md:text-4xl font-bold text-center">
+      <h2 className="text-2xl pb-4 md:text-4xl font-bold text-orange-400 text-center">
       this is TextCraft
       </h2>
-      <h2 className="text-xl md:text-3xl font-bold text-center">
+      <h2 className="text-xl md:text-3xl  text-center">
       The Ultimate Text Toolkit.
       </h2>
     </>
@@ -87,23 +87,23 @@ function Slideshow() {
       </div>
 
       {/* Previous Button */}
-      <button
-        className="absolute left-4 bg-blue-500 text-white p-2 rounded-full"
+      <Button
+        className="hidden sm:block absolute left-4 bg-cyan-600 text-white p-2 rounded-full"
         onClick={prevSlide}
       >
         &#10094;
-      </button>
+      </Button>
 
       {/* Next Button */}
-      <button
-        className="absolute right-4 bg-blue-500 text-white p-2 rounded-full"
+      <Button
+        className="hidden sm:block absolute right-4 bg-cyan-600 text-white p-2 rounded-full"
         onClick={nextSlide}
       >
         &#10095;
-      </button>
+      </Button>
 
       {/* Slide Indicators dots */} 
-      <div className="absolute bottom-4 flex justify-center space-x-2">
+      <div className="absolute bottom-3 flex justify-center space-x-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -113,7 +113,7 @@ function Slideshow() {
               startSlideInterval(); // Restart the interval
             }}
             className={`w-3 h-3 mx-1 rounded-full ${
-              currentSlide === index ? "bg-blue-500" : "bg-gray-300"
+              currentSlide === index ? "bg-cyan-600" : "bg-gray-300"
             }`}
           />
         ))}
