@@ -1,18 +1,64 @@
-import React from 'react';
-import { NavLink ,Link} from 'react-router-dom';
+import React from "react";
+import { NavLink,useLocation } from "react-router-dom";
 function Header() {
+  const location = useLocation();
+
   return (
     <>
-     <nav class="sticky top-0 z-10 bg-lime-300  flex w-screen  items-center justify-between px-4 py-2">
-<div className='mx-7 bg-slate-50'>
-  <ul class="flex space-x-7 text-green bg-amber-200">
-    <li><NavLink  to="/" class="hover:text-red-600">Home</NavLink></li>
-    <li><NavLink  to="/about" class="hover:text-red-600">About</NavLink></li>
-    <li><NavLink  to="/#guide" class="hover:text-red-600">Guide</NavLink></li>
-    <li><NavLink  to="#" class="hover:text-red-600">Explore</NavLink></li>
-  </ul>
-  </div> 
-</nav>
+      <nav className="min-h-14 sticky top-0 z-10 bg-cyan-300 flex w-full items-center justify-between  ">
+      <div className="hidden sm:block ml-32 font-bold text-2xl ">
+          textCraftz
+        </div>
+        <div className="  lg:mr-16  m-auto font-semibold text-lg ">
+          <ul className="flex px-3 space-x-7 text-green  ">
+            <li>
+              <NavLink
+                to="/"
+                className={`${
+                  location.pathname === "/" && !location.hash
+                    ? "text-gray-700 underline"
+                    : "hover:text-red-600 hover:underline"
+                }`}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-red-600 hover:underline"
+                }
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/#guide"
+                className={`${
+                  location.hash === "#guide"
+                    ? "text-blue-600"
+                    : "hover:text-red-600 hover:underline"
+                }`}
+              >
+                Guide
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/explore"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-red-600 hover:underline"
+                }
+              >
+                Explore
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+       
+      </nav>
     </>
   );
 }
