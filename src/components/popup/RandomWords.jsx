@@ -10,7 +10,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    popupDone();
+    popupDone(); 
   };
 
   return (
@@ -51,8 +51,8 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
               onChange={(e) => setType(e.target.value)}
               className="w-full h-[45px] mt-2 mb-2 rounded-md bg-slate-100 border-2 border-black-300 px-3 placeholder:pl-3 text-green-800 outline-green-600"
             >
-              <option value="Short and Simple">Lorem Ipsum</option>
-              <option value="Funny">Random</option>
+              <option value="lorem">Lorem Ipsum</option>
+              <option value="random">Random</option>
             </select>
 
             {/* Submit Button */}

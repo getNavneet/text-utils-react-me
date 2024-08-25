@@ -17,7 +17,6 @@ const generateLorem =(len)=>{
       {
         sentence += wordList[Math.floor(Math.random() * wordList.length)] + " ";
       }
-      console.log(sentence)
       return sentence
 }
 export {generateLorem}
