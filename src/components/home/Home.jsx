@@ -1,7 +1,7 @@
+import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import React from "react";
-// import Button from "../../../Button";
+
 import TextPreview from "../textPreview/TextPreview";
 import Button from "../../Button";
 import { generateLorem } from "../../utils/generateWords";
@@ -43,7 +43,7 @@ function Home() {
     closePopup();
   };
 
-  // const [previewText,setPreviewText]=useState(text)
+  
   const [countW, setcountW] = useState(0);
 
   function handleOnChange(e) {
@@ -94,13 +94,13 @@ function Home() {
     <>
       {/* <HeroSection/> */}
       <Slideshow></Slideshow>
-      <div className="text-yellow-900 text-center text-3xl pt-7 pb-7 bg-slate-100"></div>
-      <div className="w-screen bg-orange-800 text-center">
+      <div className="text-center mt-4 bg-slate-100 "></div>
+      <div className="w-full bg-cyan-600 text-center">
         <h1 className="text-centre text-2xl text-neutral-50 p-4">
           Enter text below to Analyse
         </h1>
         <textarea
-          className=" bg-gray-200 rounded px-3 py-2 mx-auto focus:outline-none resize-vertical"
+          className=" bg-cyan-800 rounded px-3 py-2 mx-auto focus:outline-none resize-vertical shadow-xl border"
           placeholder="Start typing... or paste text here"
           style={{ width: "80%", height: "200px" }}
           value={text}
@@ -110,34 +110,34 @@ function Home() {
           // cols="100"
           ref={textRef}
         ></textarea>
-        <div className="p-1 w-5/6 m-auto bg-orange-300">
-          <Button className="m-1 px-4 py-2" onClick={openPopup}>
+        <div className="p-1 w-5/6 m-auto ">
+          <Button className="m-1 px-4 py-2 shadow-xl  " onClick={openPopup}>
             generate random words
           </Button>
 
-          <Button className="m-1 px-4 py-2" onClick={handleUpperCase}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={handleUpperCase}>
             to UpperCase
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={handleLowerCase}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={handleLowerCase}>
             to LowerCase
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={handleClearAll}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={handleClearAll}>
             clear all
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={handleCopyText}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={handleCopyText}>
             copy text
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={handleExtraSpace}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={handleExtraSpace}>
             remove extra space
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={extractEmails}>
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={extractEmails}>
             extract Emails
           </Button>
-          <Button className="m-1 px-4 py-2" onClick={extractPhoneNumbers}>
-            extract mobile no
+          <Button className="m-1 px-4 py-2 shadow-xl" onClick={extractPhoneNumbers}>
+            extract phone no
           </Button>
         </div>
-        <h1 className="text-2xl p-2 bg-yellow-700 inline-block ">
+        <h1 className="text-2xl p-2  inline-block ">
           your text summary :
         </h1>
         <p>

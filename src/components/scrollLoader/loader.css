@@ -3,8 +3,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px; /* Height of the loader */
-    background-color: rgb(255, 162, 0); /* Default color of the loader */
+    height: 2px; /* Height of the loader */
+    background-color: rgb(253, 253, 252); /* Default color of the loader */
     z-index: 1000; /* Ensure the loader is above other elements */
     transition: width 0.3s; /* Smooth transition for width changes */
   }
