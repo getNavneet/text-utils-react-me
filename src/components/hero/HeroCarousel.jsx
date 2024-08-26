@@ -5,7 +5,7 @@ const slides = [
     para:"The Ultimate Text Toolkit."
    },
   { heading: "Generate Random words.",
-    para:"use as sample text and space filler."
+    para:"used as sample text and space filler."
    },
   { heading: "Extract e-mail Ids.",
     para:"paste a long para and we will extract e-mail ids from it."
@@ -62,7 +62,7 @@ function Slideshow() {
           <h2 className="text-2xl md:text-4xl font-bold text-center underline decoration-dotted text-orange-600">
           {slides[currentSlide].heading}
         </h2>
-        <h3 className="text-xl md:text-3xl  text-center">
+        <h3 className="text-xl md:text-3xl pt-2 text-center text-gray-500">
           {slides[currentSlide].para}
         </h3>
           </>)
@@ -74,10 +74,10 @@ function Slideshow() {
       <h2 className="text-3xl  md:text-4xl font-bold text-orange-600 text-center">
       welcome 🤗
       </h2>
-      <h2 className="text-2xl pb-4 md:text-4xl font-bold text-orange-400 text-center">
+      <h2 className="text-2xl pb-4 md:text-4xl font-bold text-gray-500 text-center">
       this is TextCraft
       </h2>
-      <h2 className="text-xl md:text-3xl  text-center">
+      <h2 className="text-xl md:text-3xl text-center text-gray-300">
       The Ultimate Text Toolkit.
       </h2>
     </>
