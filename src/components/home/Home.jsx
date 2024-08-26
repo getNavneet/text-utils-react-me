@@ -119,7 +119,7 @@ function Home() {
           style={{ width: "80%", height: "200px" }}
           value={text}
           onChange={handleOnChange}
-          autoFocus
+          // autoFocus
           // rows="10"
           // cols="100"
           ref={textRef}
