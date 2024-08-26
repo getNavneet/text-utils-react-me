@@ -18,7 +18,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
       <div className="bg-white p-6 rounded-lg shadow-lg relative">
         {/* Close Button */}
         <Button
-          className="absolute bg-transparent top-2 right-2 text-gray-600 hover:text-gray-800 text-xl"
+          className="absolute top-2 right-2 text-black bg-transparent  hover:text-gray-800 text-4xl"
           onClick={closePopup}
         >
           &times;
@@ -29,7 +29,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
             {/* Number of words input */}
             <label
               htmlFor="wordsCount"
-              className="text-green-800 h-[60px] mb-[30px] p-1 my-3 text-left"
+              className="text-cyan-800 h-[60px] mb-[30px] p-1 my-3 text-left"
             >
               Number of words:
             </label>
@@ -39,7 +39,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
               onChange={handleRandomWordCount}
               value={len}
               placeholder="Eg. 100"
-              className="w-full h-[45px] mt-2 rounded-md bg-slate-100 border-2 border-black-300 px-3 placeholder:pl-0 text-green-800 outline-green-600"
+              className="w-full h-[45px] mt-2 rounded-md bg-slate-100 border-2 border-black-300 px-3 placeholder:pl-0 text-blue-500 outline-green-600"
             />
 
             {/* Type select */}
@@ -49,7 +49,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
             <select
               value={type}
               onChange={(e) => setType(e.target.value)}
-              className="w-full h-[45px] mt-2 mb-2 rounded-md bg-slate-100 border-2 border-black-300 px-3 placeholder:pl-3 text-green-800 outline-green-600"
+              className="w-full h-[45px] mt-2 mb-2 rounded-md bg-slate-100 border-2 border-black-300 px-3 placeholder:pl-3 text-blue-500 outline-green-600"
             >
               <option value="lorem">Lorem Ipsum</option>
               <option value="random">Random</option>
@@ -58,7 +58,7 @@ const Popup = ({ closePopup, popupDone, len, setLen, type, setType }) => {
             {/* Submit Button */}
             <Button
               type="submit"
-              className="bg-green-300 m-auto mt-4 p-2 w-[150px] text-center rounded-lg font-bold text-green-800"
+              className=" m-auto mt-4 p-2 w-[150px] text-center rounded-lg font-bold shadow-2xl "
             >
               Done
             </Button>

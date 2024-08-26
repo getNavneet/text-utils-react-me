@@ -11,8 +11,8 @@ function TextPreview({ text }) {
 
   return (
     <>
-      <h2>preview:</h2>
-      <p className="w-5/5 md:w-4/5 lg:w-4/5 p-6 lg:p-10 m-auto ">
+      <h2 className="pt-6 text-orange-700">text preview:</h2>
+      <p className="w-5/5 md:w-4/5 lg:w-4/5 p-2 lg:p-10 m-auto ">
         {displayedText} 
         {words.length > 100 && (
         <button className="text-neutral-200" onClick={() => setShowFullText(!showFullText)}>

@@ -15,6 +15,7 @@ function Home() {
     // Check if the location's hash matches "#guide"
     if (location.hash === "#guide") {
       // Scroll to the guide section when the component renders
+      
       guideRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
       // Scroll to top if navigating to Home without #guide hash
@@ -150,14 +151,14 @@ function Home() {
       </div>
       <div
         ref={guideRef}
-        class=" w-screen flex flex-col justify-center items-center bg-grey-1s00"
+        class=" w-full flex flex-col justify-center items-center bg-cyan-100"
       >
-        <div class=" w-full p-6 bg-white rounded-lg shadow-lg">
+        <div class=" w-full p-6 rounded-lg shadow-lg">
           <h1 class="text-3xl font-bold mb-4">
             User Guide for Text Utility React App
           </h1>
 
-          <h2 class="text-2xl font-bold mb-2 " id="scrollHere">
+          <h2 class="text-2xl font-bold mb-2 " >
             Introduction
           </h2>
           <p>
