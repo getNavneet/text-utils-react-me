@@ -81,7 +81,14 @@ function Home() {
   function extractEmails() {
     const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g;
     const mails = text.match(emailRegex) || [];
-    setText(mails);
+    
+    if (mails.length == 0)
+      {
+        setText("no mail found");
+      }
+      else{
+        setText(String(mails));
+      }
   }
   function extractPhoneNumbers() {
     // Regular expression to match phone numbers in various formats
@@ -89,7 +96,13 @@ function Home() {
       /(\+\d{1,2}\s?)?(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}/g;
     // Extract phone numbers from the text
     const phoneNumbers = text.match(phoneRegex) || [];
-    setText(phoneNumbers);
+    if(phoneNumbers ==0){
+      
+      setText("no phone number found");
+    }
+    else{
+      setText(String(phoneNumbers));
+    }
   }
   return (
     <>
