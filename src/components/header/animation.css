@@ -1,0 +1,31 @@
+/* Add this CSS to your project */
+@keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  .menu-enter {
+    animation: slideDown 0.4s ease-out forwards;
+  }
+  
+  .menu-exit {
+    animation: slideUp 1s ease-in forwards;
+  }
+  
